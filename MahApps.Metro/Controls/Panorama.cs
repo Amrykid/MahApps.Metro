@@ -8,6 +8,7 @@ using System.Windows.Media;
 
 namespace MahApps.Metro.Controls
 {
+    [Obsolete("Do not use the Panorama control. It is in need of a rewrite!")]
     [TemplatePart(Name = "PART_ScrollViewer", Type = typeof(ScrollViewer))]
     public class Panorama : ItemsControl
     {
