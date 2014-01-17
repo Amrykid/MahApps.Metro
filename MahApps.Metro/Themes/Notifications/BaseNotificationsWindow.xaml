@@ -2,24 +2,33 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:Notifications="clr-namespace:MahApps.Metro.Controls.Notifications">
     
-    <ControlTemplate TargetType="{x:Type Notifications:NotificationsWindow}"
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Clean/CleanWindow.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    
+    <ControlTemplate TargetType="{x:Type Notifications:BaseNotificationsWindow}"
                      x:Key="MetroNotificationsWindowTemplate">
         <Border BorderBrush="{TemplateBinding BorderBrush}"
                 BorderThickness="{TemplateBinding BorderThickness}">
             <Grid Margin="10,10,50,10">
-                <ContentPresenter Grid.Row="1"
+                <ContentPresenter
                     Content="{TemplateBinding Body}"/>
             </Grid>
         </Border>
     </ControlTemplate>
 
-    <Style TargetType="{x:Type Notifications:NotificationsWindow}">
+    <Style TargetType="{x:Type Notifications:BaseNotificationsWindow}">
         <Setter Property="Template"
                 Value="{StaticResource MetroNotificationsWindowTemplate}" />
         <Setter Property="ShowInTaskbar"
                 Value="False" />
         <Setter Property="ShowActivated"
                 Value="True" />
+        <Setter Property="ShowTitleBar"
+                Value="False" />
         <Setter Property="ResizeMode"
                 Value="NoResize" />
         <Setter Property="Background"

@@ -109,7 +109,8 @@
     <Compile Include="Controls\MetroProgressBar.cs" />
     <Compile Include="Controls\MetroTabControl.cs" />
     <Compile Include="Controls\MetroTabItem.cs" />
-    <Compile Include="Controls\Notifications\NotificationsWindow.cs" />
+    <Compile Include="Controls\Notifications\BaseNotificationsWindow.cs" />
+    <Compile Include="Controls\Notifications\NotificationsManager.cs" />
     <Compile Include="Controls\NumericUpDown.cs" />
     <Compile Include="Controls\Pivot.cs" />
     <Compile Include="Controls\PivotItem.cs" />
@@ -472,7 +473,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Themes\Notifications\NotificationsWindow.xaml">
+    <Page Include="Themes\Notifications\BaseNotificationsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
