@@ -37,6 +37,8 @@ namespace MahApps.Metro.Controls.Notifications
             this.Height = 100;
             this.Left = SystemParameters.PrimaryScreenWidth;
             this.Top = SystemParameters.PrimaryScreenHeight / 3.5;
+            this.ShowActivated = true;
+            this.Topmost = true;
         }
 
         internal virtual Task ShowAnimated()
@@ -77,7 +79,37 @@ namespace MahApps.Metro.Controls.Notifications
 
         internal virtual Task HideAnimated()
         {
-            return null;
+            Storyboard sb = new Storyboard();
+
+            DoubleAnimation widthAnimation = new DoubleAnimation(0.0, new Duration(new TimeSpan(0, 0, 0, 0, 700)));
+
+            //Storyboard.SetTarget(widthAnimation, this);
+            Storyboard.SetTargetProperty(widthAnimation, new PropertyPath(FrameworkElement.WidthProperty));
+
+            sb.Children.Add(widthAnimation);
+
+            DoubleAnimation leftAnimation = new DoubleAnimation(SystemParameters.PrimaryScreenWidth, new Duration(new TimeSpan(0, 0, 0, 0, 700)));
+
+            //Storyboard.SetTarget(leftAnimation, this);
+            Storyboard.SetTargetProperty(leftAnimation, new PropertyPath(Window.LeftProperty));
+
+            sb.Children.Add(leftAnimation);
+
+            TaskCompletionSource<object> tcs = new TaskCompletionSource<object>();
+
+            EventHandler eh = null;
+            eh = new EventHandler((o, e) =>
+            {
+                this.Focus();
+
+                sb.Completed -= eh;
+                tcs.TrySetResult(null);
+            });
+            sb.Completed += eh;
+
+            this.BeginStoryboard(sb);
+
+            return tcs.Task;
         }
     }
 }

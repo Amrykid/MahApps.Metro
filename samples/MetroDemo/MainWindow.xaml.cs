@@ -23,7 +23,7 @@ namespace MetroDemo
 
             CollectionViewSource.GetDefaultView(groupingComboBox.ItemsSource).GroupDescriptions.Add(new PropertyGroupDescription("Artist"));
 
-            MahApps.Metro.Controls.Notifications.NotificationsManager.ShowNotificationAsync();
+            MahApps.Metro.Controls.Notifications.NotificationsManager.ShowBasicNotificationAsync("Hello", "This is a notification.", 5000, null, null);
         }
 
         void Tick(object sender, EventArgs e)
