@@ -398,12 +398,21 @@ namespace MahApps.Metro.Controls
 
             this.ResetAllWindowCommandsBrush();
 
+            System.Threading.Tasks.Task.Factory.StartNew(() =>
+                {
+                    WindowTheme = ThemeManager.DetectTheme(this).Item1;
+                });
+
             ThemeManager.IsThemeChanged += ThemeManagerOnIsThemeChanged;
             this.Unloaded += (o, args) => ThemeManager.IsThemeChanged -= ThemeManagerOnIsThemeChanged;
         }
 
+        internal Theme WindowTheme { get; private set; }
+
         private void ThemeManagerOnIsThemeChanged(object sender, OnThemeChangedEventArgs e)
         {
+            WindowTheme = e.Theme;
+
             if (e.Accent != null)
             {
                 var flyouts = this.Flyouts.GetFlyouts().ToList();

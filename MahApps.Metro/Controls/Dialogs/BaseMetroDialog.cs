@@ -80,6 +80,20 @@ namespace MahApps.Metro.Controls.Dialogs
                     this.SetResourceReference(BackgroundProperty, "HighlightBrush");
                     this.SetResourceReference(ForegroundProperty, "IdealForegroundColorBrush");
                     break;
+                case MetroDialogColorScheme.Inverse:
+                    switch (owningWindow.WindowTheme)
+                    {
+                        case Theme.Dark:
+                            this.SetResourceReference(BackgroundProperty, "FlyoutLightBrush");
+                            this.SetResourceReference(ForegroundProperty, "WhiteColorBrush");
+                            break;
+                        case Theme.Light:
+                            this.SetResourceReference(BackgroundProperty, "FlyoutDarkBrush");
+                            this.SetResourceReference(ForegroundProperty, "WhiteColorBrush");
+                            break;
+
+                    }
+                    break;
             }
 
             OwningWindow = owningWindow;
@@ -246,6 +260,7 @@ namespace MahApps.Metro.Controls.Dialogs
     public enum MetroDialogColorScheme
     {
         Theme = 0,
-        Accented = 1
+        Accented = 1,
+        Inverse = 2
     }
 }
