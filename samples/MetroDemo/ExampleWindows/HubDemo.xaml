@@ -1,0 +1,45 @@
+﻿<Controls:MetroWindow x:Class="MetroDemo.ExampleWindows.HubDemo"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                      xmlns:metroDemo="clr-namespace:MetroDemo"
+                      xmlns:exampleWindows="clr-namespace:MetroDemo.ExampleWindows"
+                      Title="Hub Demo"
+                      Width="800"
+                      Height="600"
+                      SaveWindowPosition="True"
+                      WindowStartupLocation="CenterScreen"
+                      BorderThickness="1"
+                      BorderBrush="{DynamicResource AccentColorBrush}"
+                      mc:Ignorable="d"
+                      Loaded="MetroWindow_Loaded">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/FlatButton.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.Resources;component/Icons.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Controls:Hub Header="MahNews" x:Name="hubControl">
+            <Controls:HubSection Background="{DynamicResource GrayBrush1}" Width="600">
+                <Image Source="http://upload.wikimedia.org/wikipedia/commons/6/6f/Earth_Eastern_Hemisphere.jpg" Stretch="Fill" />
+            </Controls:HubSection>
+            <Controls:HubSection Header="Related" Background="{DynamicResource GrayBrush2}">
+                <ListBox Background="Transparent">
+                    <ListBoxItem Foreground="{DynamicResource WhiteBrush}">Some news</ListBoxItem>
+                    <ListBoxItem Foreground="{DynamicResource WhiteBrush}">More news</ListBoxItem>
+                    <ListBoxItem Foreground="{DynamicResource WhiteBrush}">Even more news</ListBoxItem>
+                </ListBox>
+            </Controls:HubSection>
+            <Controls:HubSection Header="Other" Background="{DynamicResource GrayBrush3}">
+                <Label Foreground="{DynamicResource WhiteBrush}">Other stuff</Label>
+            </Controls:HubSection>
+        </Controls:Hub>
+    </Grid>
+
+</Controls:MetroWindow>

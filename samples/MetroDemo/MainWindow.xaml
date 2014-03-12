@@ -117,6 +117,8 @@
             <Button Click="LaunchNavigationDemo"
                     ToolTip="Window navigation demo"
                     Content="Navigation" />
+            <Button Click="LaunchHubDemo"
+                    Content="Hub" />
             <ToggleButton Content="ToggleButton"
                           ToolTip="Shows the toggle button magic"
                           x:Name="MagicToggleButton"

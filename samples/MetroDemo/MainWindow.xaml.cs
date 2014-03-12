@@ -197,5 +197,11 @@ namespace MetroDemo
             navWin.Show();
             navWin.Navigate(new Navigation.HomePage());
         }
+
+        private void LaunchHubDemo(object sender, RoutedEventArgs e)
+        {
+            var hubWin = new HubDemo();
+            hubWin.Show();
+        }
     }
 }

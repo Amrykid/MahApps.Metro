@@ -109,6 +109,9 @@
     <Compile Include="ExampleWindows\CleanWindowDemo.xaml.cs">
       <DependentUpon>CleanWindowDemo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ExampleWindows\HubDemo.xaml.cs">
+      <DependentUpon>HubDemo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ExampleWindows\CustomFlyout.xaml.cs">
       <DependentUpon>CustomFlyout.xaml</DependentUpon>
     </Compile>
@@ -165,6 +168,10 @@
     <Page Include="ExampleWindows\CleanWindowDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ExampleWindows\HubDemo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="ExampleWindows\CustomFlyout.xaml">
       <SubType>Designer</SubType>

@@ -1,0 +1,87 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:Controls="clr-namespace:MahApps.Metro.Controls">
+
+    <Style TargetType="{x:Type Controls:Hub}">
+        <Setter Property="FontSize" Value="25" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Controls:Hub}">
+                    <Border Background="{TemplateBinding Background}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            
+                            <ContentPresenter Content="{TemplateBinding Header}"
+                                              ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                              ContentTemplateSelector="{TemplateBinding HeaderTemplateSelector}" 
+                                              TextBlock.FontSize="{TemplateBinding FontSize}"
+                                              Grid.Row="0"
+                                              Margin="20 0 0 0"/>
+                            
+                            <ScrollViewer x:Name="PART_TopLevelScrollViewer" 
+                                          Grid.Row="1"
+                                          Width="{TemplateBinding ActualWidth}"
+                                          HorizontalScrollBarVisibility="Visible"
+                                          VerticalScrollBarVisibility="Disabled"
+                                          PanningMode="HorizontalOnly">
+                                    <StackPanel Orientation="Horizontal" 
+                                                IsItemsHost="True"/>
+                            </ScrollViewer>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type Controls:HubSection}">
+        <Setter Property="MinWidth" Value="320" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Controls:HubSection}">
+                    <Border Background="{TemplateBinding Background}"
+                            Width="{TemplateBinding Width}"
+                            Height="{Binding RelativeSource={RelativeSource AncestorType=Controls:Hub, Mode=FindAncestor}, Path=ActualHeight}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            
+                            <Button x:Name="PART_HeaderButton" 
+                                    Style="{DynamicResource ChromelessButtonStyle}" 
+                                    Grid.Row="0" 
+                                    VerticalAlignment="Stretch"
+                                    Focusable="False">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{TemplateBinding Header}" Margin="0 -5 0 0" VerticalAlignment="Center" />
+
+                                    <!-- x:Key="appbar_chevron_left"-->
+                                    <Canvas Width="48" Height="48" Clip="F1 M 0,0L 48,0L 48,48L 0,48L 0,0" UseLayoutRounding="False">
+                                        <Path Width="16" Height="18" Canvas.Left="15.9063" Canvas.Top="14.75" Stretch="Fill" Fill="{DynamicResource BlackBrush}" Data="F1 M 22.6563,23.75L 24.6563,25.75L 31.9063,32.75L 25.4063,32.75L 15.9063,23.75L 25.4063,14.75L 31.9063,14.75L 24.6563,21.75L 22.6563,23.75 Z " />
+                                    </Canvas>
+                                </StackPanel>
+                            </Button>
+                            
+                            <ContentPresenter Grid.Row="1"
+                                              VerticalAlignment="Stretch"
+                                              HorizontalAlignment="Stretch"
+                                              x:Name="PART_ContentPresenter" />
+                        </Grid>
+                    </Border>
+                    
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="HasHeader" Value="False">
+                            <Setter TargetName="PART_HeaderButton" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
