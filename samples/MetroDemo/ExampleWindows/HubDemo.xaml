@@ -25,9 +25,13 @@
         </ResourceDictionary>
     </Window.Resources>
     <Grid>
-        <Controls:Hub Header="MahNews" x:Name="hubControl">
-            <Controls:HubSection Background="{DynamicResource GrayBrush1}" Width="600">
-                <Image Source="http://upload.wikimedia.org/wikipedia/commons/6/6f/Earth_Eastern_Hemisphere.jpg" Stretch="Fill" />
+        <Controls:Hub Header="MahNews" x:Name="hubControl" Background="{DynamicResource HighlightBrush}" Foreground="White">
+            <Controls:HubSection Background="Black" Width="600" x:Name="headerHub">
+                <Grid>
+                    <Image Source="http://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg" Stretch="Uniform" />
+                    
+                    <Label Content="Why applesauce is good." Panel.ZIndex="1" FontWeight="Bold" Foreground="White" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 20 20"/>
+                </Grid>
             </Controls:HubSection>
             <Controls:HubSection Header="Related" Background="{DynamicResource GrayBrush2}">
                 <ListBox Background="Transparent">

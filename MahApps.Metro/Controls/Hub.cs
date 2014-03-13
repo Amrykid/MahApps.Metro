@@ -43,6 +43,11 @@ namespace MahApps.Metro.Controls
             
         }
 
+        protected override void OnPreviewMouseWheel(MouseWheelEventArgs e)
+        {
+            TopLevelScrollViewer.ScrollToHorizontalOffset(TopLevelScrollViewer.HorizontalOffset + e.Delta);
+        }
+
         protected override void PrepareContainerForItemOverride(DependencyObject element, object item)
         {
             base.PrepareContainerForItemOverride(element, item);
